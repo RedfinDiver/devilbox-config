@@ -3,7 +3,7 @@
 # This script starts and stops the devilbox webserver for development
 
 devilbox_dir=/home/markus/Projekte/devilbox
-devilbox_cfg=/home/markus/Projekte/dotfiles/devilbox
+devilbox_cfg=/home/markus/Projekte/devilbox-config
 
 # check for existing devilbox repo, clone it when not existing
 if [ ! -d ~/Projekte/devilbox ]
@@ -29,7 +29,7 @@ cd $devilbox_dir
 if [ -z $running ]
 then
     # copy configurations
-    cp $devilbox_cfg/.env $devilbox_dir/.env
+    cp $devilbox_cfg/enviroment $devilbox_dir/.env
     cp $devilbox_cfg/xdebug.ini $devilbox_dir/cfg/php-ini-7.3/xdebug.ini
     cp $devilbox_cfg/docker-compose.override.yml $devilbox_dir/docker-compose.override.yml
 
