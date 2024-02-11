@@ -30,11 +30,11 @@ if [ -z $running ]
 then
     # copy configurations
     cp $devilbox_cfg/enviroment $devilbox_dir/.env
-    cp $devilbox_cfg/xdebug.ini $devilbox_dir/cfg/php-ini-7.3/xdebug.ini
+    cp $devilbox_cfg/xdebug.ini $devilbox_dir/cfg/php-ini-8.2/xdebug.ini
     cp $devilbox_cfg/docker-compose.override.yml $devilbox_dir/docker-compose.override.yml
 
     # start webserver, the first time it takes a while!
-    docker-compose up -d httpd php mysql
+    docker-compose up -d bind httpd php mysql
 else
     # webserver running, create mysql backups and shut down
     docker exec devilbox_php_1 sh -c 'rm -rf /shared/backups/mysql/*'
